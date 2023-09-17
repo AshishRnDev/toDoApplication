@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/no-unstable-nested-components */
 import {View, Text} from 'react-native';
 import React, {useState} from 'react';
@@ -74,6 +75,19 @@ const TaskItem = ({item, onDelete}) => {
     markAsCompleted();
   };
 
+  const checkedIcon = () => (
+    <Icon name="check-box" type="material" color="#fff" size={24} />
+  );
+
+  const unCheckedIcon = () => (
+    <Icon
+      name="check-box-outline-blank"
+      type="material"
+      color="#fff"
+      size={24}
+    />
+  );
+
   return (
     <>
       <View style={styles.height} />
@@ -117,7 +131,9 @@ const TaskItem = ({item, onDelete}) => {
             <Text style={styles.taskStyle}>{item?.taskTitle ?? 'N/A'}</Text>
 
             {item?.isCompleted === true ? (
-              <Text style={styles.editStyle}>Completed</Text>
+              <Text style={[styles.editStyle, {color: '#97E549'}]}>
+                Completed
+              </Text>
             ) : (
               <Text
                 onPress={() => {
@@ -162,17 +178,8 @@ const TaskItem = ({item, onDelete}) => {
               checked={checked}
               onPress={toggleCheckbox}
               containerStyle={styles.checkContainerStyle}
-              checkedIcon={() => (
-                <Icon name="check-box" type="material" color="#fff" size={24} />
-              )}
-              uncheckedIcon={() => (
-                <Icon
-                  name="check-box-outline-blank"
-                  type="material"
-                  color="#fff"
-                  size={24}
-                />
-              )}
+              checkedIcon={checkedIcon()}
+              uncheckedIcon={unCheckedIcon()}
               titleProps={{
                 style: {
                   color: '#fff',
