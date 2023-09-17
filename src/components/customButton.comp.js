@@ -10,6 +10,8 @@ const CustomButton = ({
   titleStyle,
   disabledStyle,
   onPress,
+  icon,
+  iconContainerStyle,
   ...rest
 }) => {
   return (
@@ -22,6 +24,8 @@ const CustomButton = ({
       diasabledStyle={[styles.diasabledStyle, disabledStyle]}
       raised={true}
       size="lg"
+      icon={icon}
+      iconContainerStyle={iconContainerStyle}
       onPress={onPress}
     />
   );

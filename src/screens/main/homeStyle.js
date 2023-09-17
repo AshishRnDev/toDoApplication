@@ -83,4 +83,7 @@ export const styles = StyleSheet.create({
   selectedButtonText: {
     color: 'white',
   },
+  buttonIcon: {
+    marginLeft: 10,
+  },
 });

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unstable-nested-components */
 /* eslint-disable eqeqeq */
 /* eslint-disable react-hooks/exhaustive-deps */
 import {ScrollView, TouchableOpacity, View} from 'react-native';
@@ -151,9 +152,19 @@ const HomeScreen = () => {
           ]}
           style={styles.linearStyle}>
           <CustomButton
+            iconRight
             containerStyle={styles.btnContainerStyle}
-            title={'Add new task'}
+            title={'Add New Task'}
             onPress={() => navigation.navigate(ROUTES.ADDTASK)}
+            icon={() => (
+              <Icon
+                name="pluscircleo"
+                type="antdesign"
+                size={22}
+                color={'#fff'}
+                style={styles.buttonIcon}
+              />
+            )}
           />
         </LinearGradient>
       </LinearBackground>
